@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import 'variables';
+@import 'spinner';
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	min-height: 100%;
+	font-size: 10px;
+}
+
+body {
+	margin: 0;
+	background-color: $baseColor;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+
+.App {
+	width: 95%;
+	max-width: 1200px;
+	margin: auto;
+}
+
+.tasks-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+[class^=total-] {
+	display: inline-block;
+	padding: 1rem;
+	border-radius: 0.6rem;
+}
+
+.total- {
+	&amount {
+		background-color: $blueColor;
+		margin-left: 0.5rem;
+	}
+	&done {
+		background-color: $greenColor;
+		margin-left: auto;
+	}
+	&todo {
+		background-color: $redColor;
+		margin-left: 0.5rem;
+	}
+}
+
+.task-box {
+	margin: 1.5rem 0;
+	padding: 1.5rem;
+	border: 1px solid darken($baseColor, 10);
+	border-radius: 5px;
+	background-color: $baseColor;
+	
+	h2 {
+		font-size: 2.4em;
+	}
+
+	&.done {
+		background-color: $greenColor;
+		border: 1px solid darken($greenColor, 20);
+	}
+}
+
+.action-button {
+	background: #222222;
+	border: none;
+	padding: 1rem;
+	color: #ffffff;
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+.modal {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(black, 0.3);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&_content {
+		background-color: #ffffff;
+		padding: 2rem;
+		border-radius: 1rem;
+		font-size: 1.4em;
+		width: 90%;
+		max-width: 400px;
+		box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.5);
+		position: relative;
+
+		h2 {
+			margin-top: 0;
+		}
+	}
+}
+
+.do-undo-slider {
+	width: 50px;
+	line-height: 0;
+	border-radius: 25px;
+	background-color: rgba($redColor, 0.5);
+	border: 1px solid darken($redColor, 20);
+	padding: 1px 2px;
+	transition: 0.3s;
+	cursor: pointer;
+	
+	&.check{
+		background-color: rgba($greenColor, 1);
+		border-color: darken($greenColor, 20);
+		.marker {
+			background-color: darken($greenColor, 25);
+			transform: translateX(20px);
+		}
+	}
+	
+	.marker {
+		width: 25px;
+		height: 25px;
+		background-color: rgba($redColor, 0.8);
+		border-radius: 50%;
+		transition: 0.3s;
+	}
+}
+
+.close-btn {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	padding: 0;
+	line-height: 0;
+	width: 22px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	img {
+		width: 100%;
+	}
+}
+
+.credits {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	padding: 1.5rem;
+	font-size: 1.2em;
+	p {
+		margin: 0;
+	}
+	a {
+		display: inline-block;
+		background-color: #222;
+		color: #fff;
+		text-decoration: none;
+		padding: 0.2rem 0.5rem;
+	}
+}
+
+@media (min-width: $mdDevices) {
+	.task-list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.task-box {
+		width: 49%;
+	}
+}
+
+@media (min-width: $lgDevices) {
+	.task-list {
+		justify-content: flex-start;
+	}
+	.task-box {
+		width: 32.6%;
+		margin-right: 1.1%;
+		&:nth-child(3n) {
+			margin-right: 0;
+		}
+	}
+}
