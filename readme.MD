@@ -14,25 +14,27 @@ Hi, I'm Javier Herrera and this is my solution for the challenge. Next, You'll f
 git clone https://github.com/japsolo/truenorth-challenge.git
 ```
 
-2. Install the dependencies using the command:
+2. Install the main dependencie using the command:
+
+```
+npm install
+```
+
+3. Install all the app dependencies using the command:
 
 ```
 npm run create
 ```
 
-Also you can use `yarn` instead of `npm`
+4. Run the app using the command:
 
 ```
-yarn run create
+npm run dev
 ```
 
-3. Run the app using the command:
+Also you can use `yarn` instead of `npm` to install the dependencies.
 
-```
-yarn run dev
-```
-
-4. Open the browser and go to http://localhost:3000.
+5. Open the browser and go to http://localhost:3000.
 
 By default you will see only 3 task. But you can re-generate the tasks by passing a query string like this:
 
